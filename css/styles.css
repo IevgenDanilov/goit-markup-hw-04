@@ -55,7 +55,7 @@ img {
 }
 
 .unvisible {
-  color: var(--primary-white-color);
+  color: transparent;
 }
 
 .flex {
@@ -74,6 +74,15 @@ img {
 /* ============== END COMPONENTS ============== */
 
 /* ============== BUTTONS ============== */
+
+.button {
+  cursor: pointer;
+  color: var(--secondary-text-color);
+  font-family: inherit;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+}
 
 .button {
   cursor: pointer;
@@ -119,6 +128,8 @@ img {
 .button.secondary:focus {
   color: var(--primary-white-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .button.primary:hover,
@@ -194,13 +205,21 @@ img {
 
 .auth-nav .button {
   color: var(--secondary-text-color);
+  fill: var(--secondary-text-color);
   text-decoration: none;
   margin-left: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .auth-nav .button:hover,
 .auth-nav .button:focus {
   color: var(--accent-color);
+  fill: var(--accent-color);
+}
+
+.auth-nav-icon {
+  margin-right: 10px;
 }
 
 /* ============== END NAVIGATION ============== */
@@ -231,19 +250,25 @@ img {
   margin-bottom: 30px;
 }
 
+/* Overlay */
+
+.overlay {
+  max-width: 1600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /* outline: 1px solid black; */
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url('../images/overlay.jpg');
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 /* ============== END HERO ============== */
 
 /* ============== SECTION ============== */
-
-.section .title,
-.section-special-first .title {
-  color: var(--title-text-color);
-  font-size: 14px;
-  line-height: 1.14;
-  text-transform: uppercase;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
 
 .section-main-title {
   color: var(--title-text-color);
@@ -270,7 +295,7 @@ img {
 
 /* ============== FEATURES ============== */
 
-.feature-list .text {
+.feature-list-item .text {
   color: var(--secondary-text-color);
   font-size: 14px;
   line-height: 1.71;
@@ -288,7 +313,49 @@ img {
   margin-top: 30px;
   margin-left: 30px;
   flex-basis: calc((100% - 120px) / 4);
-  /* width: 270px; */
+}
+
+.feature-list-item-title {
+  color: var(--title-text-color);
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.feature-list-item::before {
+  display: block;
+  content: '';
+  height: 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--special-background-color);
+}
+
+.icon-antenna::before {
+  display: block;
+  background-image: url('../images/svg/features/antenna.svg');
+  background-size: 70px;
+}
+
+.icon-clock::before {
+  display: block;
+  background-image: url('../images/svg/features/clock.svg');
+  background-size: 70px;
+}
+
+.icon-diagram::before {
+  display: block;
+  background-image: url('../images/svg/features/diagram.svg');
+  background-size: 70px;
+}
+
+.icon-astronaut::before {
+  display: block;
+  background-image: url('../images/svg/features/astronaut.svg');
+  background-size: 70px;
 }
 
 /* ============== END FEATURES ============== */
@@ -360,7 +427,79 @@ img {
   margin: 0;
 }
 
+.social-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-list-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-top: 16px;
+  background-color: var(--primary-white-color);
+  cursor: pointer;
+}
+
+.social-list-icon {
+  fill: #afb1b8;
+}
+
+.social-list-link:hover,
+.social-list-link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-list-link:hover .social-list-icon,
+.social-list-link:focus .social-list-icon {
+  fill: var(--primary-white-color);
+}
+
 /* ============== END EMPLOYEES ============== */
+
+/* ============== CLIENTS ============== */
+
+.clients-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 
+.clients-list-item:not(:last-child) {
+  margin-right: 30px;
+} */
+
+.clients-list-link {
+  background-color: var(--primary-white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid #afb1b8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clients-list-icon {
+  fill: #afb1b8;
+}
+
+.clients-list-link:hover,
+.clients-list-link:focus {
+  border-color: var(--accent-color);
+}
+
+.clients-list-link:hover .clients-list-icon,
+.clients-list-link:focus .clients-list-icon {
+  fill: var(--accent-color);
+}
+
+/* ============== END CLIENTS ============== */
 
 /* ============== PORTFOLIO PROJECTS ============== */
 
@@ -406,6 +545,11 @@ img {
   margin-top: 30px;
   flex-basis: calc((100% - 90px) / 3);
   /* align-content: space-between; */
+}
+
+.projects-item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .projects-item-description {
@@ -467,5 +611,51 @@ h2 {
   margin-bottom: 9px;
 }
 /* ============== END CONTACT INFORMATION ============== */
+
+.invite {
+  margin-left: 70px;
+  padding-top: 12px;
+}
+
+.invite-text {
+  color: var(--primary-white-color);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.social-list {
+  display: flex;
+  justify-content: space-between;
+  margin-right: auto;
+}
+
+.social-list-footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-top: 16px;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.social-list-footer-icon {
+  fill: var(--primary-white-color);
+}
+
+.social-list-footer-link:hover,
+.social-list-footer-link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-list-footer-link:hover .social-list-footer-icon,
+.social-list-footer-link:focus .social-list-footer-icon {
+  fill: var(--primary-white-color);
+}
 
 /* ============== END FOOTER ============== */
