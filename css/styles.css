@@ -111,7 +111,6 @@ img {
 .button.secondary {
   color: var(--primary-text-color);
   background-color: var(--special-background-color);
-  /* background-color: transparent; */
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -207,7 +206,7 @@ img {
   color: var(--secondary-text-color);
   fill: var(--secondary-text-color);
   text-decoration: none;
-  margin-left: 50px;
+
   display: flex;
   align-items: center;
 }
@@ -216,6 +215,10 @@ img {
 .auth-nav .button:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
+}
+
+.auth-nav-item:not(:first-child) {
+  margin-left: 50px;
 }
 
 .auth-nav-icon {
@@ -387,7 +390,6 @@ img {
 }
 
 .employees-list {
-  /* margin: 0; */
   display: inline-block;
   display: flex;
   flex-direction: row;
@@ -429,7 +431,7 @@ img {
 
 .social-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .social-list-link {
@@ -439,9 +441,17 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  margin-top: 16px;
+
   background-color: var(--primary-white-color);
   cursor: pointer;
+}
+
+.social-list-item {
+  margin-top: 16px;
+}
+
+.social-list-item:not(:last-child) {
+  margin-right: 10px;
 }
 
 .social-list-icon {
@@ -463,14 +473,18 @@ img {
 /* ============== CLIENTS ============== */
 
 .clients-list {
+  display: inline-block;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: -30px;
+  margin-top: -30px;
 }
 
-/* 
-.clients-list-item:not(:last-child) {
-  margin-right: 30px;
-} */
+.clients-list-item {
+  margin-top: 30px;
+  margin-left: 30px;
+  flex-basis: calc((100% - 180px) / 6);
+}
 
 .clients-list-link {
   background-color: var(--primary-white-color);
@@ -638,8 +652,6 @@ h2 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  margin-top: 16px;
-  margin-right: 10px;
   background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
